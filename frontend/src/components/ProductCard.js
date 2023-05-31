@@ -3,7 +3,7 @@ import './ProductCard.css'
 
 const ProductCard = (props) => {
   
-  const [editBtn, setEditBtn] = useState(false)
+  const [editBtn, setEditBtn] = useState(props.price === 0 ? true : false)
 
   const [editProduct, setEditProduct] = useState({
     id: props.id,
@@ -17,7 +17,8 @@ const ProductCard = (props) => {
     (e.target.name === 'price') ?
         setEditProduct({
           ...editProduct,
-          [e.target.name]: Number.parseFloat(e.target.value).toFixed(2) // title: e.target.value
+          [e.target.name]: Number.parseFloat(e.target.value).toFixed(2)  
+          // [e.target.name]: e.target.value.toLocaleString(undefined, { style: "currency", currency: "USD" })
         })
         :
         setEditProduct({
