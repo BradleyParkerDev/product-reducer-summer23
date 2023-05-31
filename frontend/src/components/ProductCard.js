@@ -14,10 +14,16 @@ const ProductCard = (props) => {
   })
 
   const onChangeHandler = (e) => {
-    setEditProduct({
-      ...editProduct,
-      [e.target.name]: e.target.value // title: e.target.value
-    })
+    (e.target.name === 'price') ?
+        setEditProduct({
+          ...editProduct,
+          [e.target.name]: Number.parseFloat(e.target.value).toFixed(2) // title: e.target.value
+        })
+        :
+        setEditProduct({
+          ...editProduct,
+          [e.target.name]: e.target.value // title: e.target.value
+        })
   }
 
   const saveProduct = () => {
@@ -37,7 +43,32 @@ const ProductCard = (props) => {
             name='title'
             value={editProduct.title}
             onChange={onChangeHandler}
-          />
+          /><br/>
+          <label htmlFor='publisher'>Publisher: </label>
+          <input 
+            type='text'
+            name='publisher'
+            value={editProduct.publisher}
+            onChange={onChangeHandler}
+          /><br/>
+          <label htmlFor='genre'>Genre: </label>
+          <input 
+            type='text'
+            name='genre'
+            value={editProduct.genre}
+            onChange={onChangeHandler}
+          /><br/>
+          <label htmlFor='price'>Price: </label>
+          <input 
+            type='number'
+            name='price'
+            step='.01'
+            min='0.01'
+            value={editProduct.price}
+            onChange={onChangeHandler}
+          /><br/>
+
+
           <button onClick={saveProduct}>Save Edits!</button>
           {/* same as below */}
           {/* <button onClick={() => {
