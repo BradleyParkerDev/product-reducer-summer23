@@ -8,6 +8,8 @@ require('dotenv').config();
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
+// make a new route called store, it should contain a get for list-products thats sends an array []
+
 
 var app = express();
 //
