@@ -37,7 +37,9 @@ export default function productReducer (product, action) { //product is state
                 ...product
             ];
             return addArray // return to useReducer, which sets the state
-
+        case 'get-products':
+            return action.payload  //sets the payload data to the product state
+ 
         default:
             alert('No matching types!')
             return product;
