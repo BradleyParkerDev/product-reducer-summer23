@@ -68,6 +68,28 @@ function App() {
  }, [])
  
 
+ //make a button the calls to the store/list-products route
+ // take the data from that route. destructure it so it is compatible
+ // add to the existing array of data
+
+// take this object data
+//  {
+//   "id": 782330,
+//   "gameTitle": "Doom: Eternal",
+//   "publisherName": "Bethesda",
+//   "gameStudio": "id Software",
+//   "genre": "FPS",
+//   "MSRP": 39.99
+// },
+// and turn it into the below object
+// {
+//   "id": 782330,
+//   "title": "Doom: Eternal",
+//   "publisher": "Bethesda",
+//   "genre": "FPS",
+//   "price": 39.99
+// },
+
   return (
     <div className="App">
       <h1>Video Game Products</h1>

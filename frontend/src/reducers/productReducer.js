@@ -27,7 +27,7 @@ export default function productReducer (product, action) { //product is state
             let newProduct = {
                 id: uuidv4(),
                 title: "",
-                publisher: "",
+                publisher: "", 
                 genre: "",
                 price: 0    
               }
