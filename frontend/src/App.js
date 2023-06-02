@@ -1,7 +1,7 @@
 import React, {useReducer, useEffect} from 'react'
-import logo from './logo.svg';
+
 import './App.css';
-import {v4 as uuidv4} from 'uuid'
+// import {v4 as uuidv4} from 'uuid'
 import productReducer from './reducers/productReducer'
 import ProductCard from './components/ProductCard';
 
@@ -90,6 +90,15 @@ function App() {
 //   "price": 39.99
 // },
 
+const getAPIdata = async () => {
+  const response = await fetch('http://localhost:4000/api/store/list-products')
+  const data = await response.json()
+  dispatch({
+    type: 'add-store',
+    payload: data
+  })
+}
+
   return (
     <div className="App">
       <h1>Video Game Products</h1>
@@ -98,6 +107,9 @@ function App() {
           type: 'add-product'
         })
       }>Add Product</button>
+
+      <button onClick={getAPIdata}>API</button>
+      
       {
         product.map((element) => {
           return (

@@ -39,7 +39,19 @@ export default function productReducer (product, action) { //product is state
             return addArray // return to useReducer, which sets the state
         case 'get-products':
             return action.payload  //sets the payload data to the product state
- 
+        case 'add-store':
+            // console.log(action.payload)
+            let payloadArr = action.payload.map(element => {
+                return {
+                        id: element.id,
+                        title: element.gameTitle,
+                        publisher: element.publisherName,
+                        genre: element.genre,
+                        price: element.MSRP
+                        }
+            })
+            // console.log(payloadArr)
+            return [...payloadArr, ...product]
         default:
             alert('No matching types!')
             return product;
